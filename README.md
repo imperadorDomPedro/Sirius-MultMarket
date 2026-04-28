@@ -2,6 +2,25 @@
 
 API REST do **Guia da Cidade de Gurupi - TO**  
 Backend Spring Boot 3.2 / Java 17 que alimenta o frontend React gerado pelo Bolt.
+Esse front gerado pelo Bolt é para a API de consulta pública acessível a qualquer
+sistema que queira consumir os dados dos produtos e serviços das empresas cadastradas
+na plataforma.
+
+# Status
+
+Acrescentei essa sessão agora no dia 28 de abril, aniversãrio da minha ilustre cunhada Layanne Freitas. Vou batizar
+a API com o apelido que dei pra ela: layozzi (de layout em React, javascript avançado). Parabéns Layanne.
+
+Fase: Testes Unitários e teste de aceitação
+
+Segue abaixo as tecnologias empregadas por mim nesse desafio onde pensei com a ajuda da I.A em como seria a arquitetura
+da aplicação, se seria usando microsserviços, ou seria hexagonal ou clean arch (hexagonal com clean code imbutido já).
+Aqui usei a estratégia DDD focada no domínio da informação aliada ao propósito da ferramenta em implementar o CRUD, porém
+com R - Read (Listar ou buscar no banco) separado em uma API pública disponível para consulta e outra API privada
+focada na administração da API pública. A API privada é que vai me dar retorno financeiro nesse projeto, onde terei as
+atividades de cadastramento do portfólio de produtos e serviços que o empreendedor oferece.
+
+Segue para conhecimento:
 
 ---
 
@@ -17,6 +36,13 @@ Backend Spring Boot 3.2 / Java 17 que alimenta o frontend React gerado pelo Bolt
 | Containers   | Docker Compose                    |
 
 ---
+
+Aqui segue o passo a passo para subir essa API pública. Resolvi deixar ela pública e deixar a parte da API privada
+separada em outra versão e repositório fechado, pois tem caracteristíca estratégica de cunho comercial.
+Já tentaram lançar essa ferramenta umas 3 vezes sem minha participação e não conseguiram chegar no resultado satisfatório
+a longo prazo e que fosse não só um sistema, mas uma ferramenta que foca na experiência do usuário como um todo.
+Ao mesmo tempo que o sistema atende o propósito dele, tira também das pessoas mais experientes (pessoas acima dos 50 e
+60 anos) o medo de usar tecnologia por acher avançada ou inadequada para eles.
 
 ## Subindo o ambiente
 
@@ -126,3 +152,4 @@ useEffect(() => {
 - `servicos-residenciais` — Eletricistas, encanadores, marceneiros
 - `educacao-cursos` — Escolas, cursos técnicos
 - `saude-bem-estar` — Clínicas, farmácias, academias
+
