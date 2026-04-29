@@ -40,6 +40,7 @@ class CategoriaServiceTest {
 
     private Categoria categoriaCerrado;
     private Categoria categoriaAlimentacao;
+    @SuppressWarnings("unused")
     private Categoria categoriaInativa;
 
     @BeforeEach

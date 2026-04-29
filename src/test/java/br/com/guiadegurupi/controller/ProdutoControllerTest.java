@@ -3,7 +3,6 @@ package br.com.guiadegurupi.controller;
 import br.com.guiadegurupi.dto.response.ProdutoResponse;
 import br.com.guiadegurupi.exception.ResourceNotFoundException;
 import br.com.guiadegurupi.service.ProdutoService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -18,7 +17,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.*;
@@ -36,9 +34,6 @@ class ProdutoControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
-
-    @Autowired
-    private ObjectMapper objectMapper;
 
     @MockitoBean
     private ProdutoService produtoService;

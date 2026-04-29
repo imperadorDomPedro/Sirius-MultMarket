@@ -3,7 +3,6 @@ package br.com.guiadegurupi.controller;
 import br.com.guiadegurupi.dto.response.CategoriaResponse;
 import br.com.guiadegurupi.exception.ResourceNotFoundException;
 import br.com.guiadegurupi.service.CategoriaService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -33,9 +32,6 @@ class CategoriaControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
-
-    @Autowired
-    private ObjectMapper objectMapper;
 
     @MockitoBean
     private CategoriaService categoriaService;
