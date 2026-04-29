@@ -30,7 +30,17 @@ server:
   port: 8080
   servlet:
     context-path: /api
-
+    
+springdoc:
+    api-docs:
+      path: /v3/api-docs
+    swagger-ui:
+      path: /swagger-ui.html
+      display-request-duration: true
+    info:
+      title: Guia Gurupi API
+      description: API do marketplace local de Gurupi - TO
+      version: 1.0.0
 # MinIO
 minio:
   endpoint: ${MINIO_ENDPOINT:http://localhost:9000}
@@ -45,9 +55,7 @@ jwt:
 
 # CORS - libera o React do Bolt
 cors:
-  allowed-origins:
-    - http://localhost:5173
-    - https://personalized-multi-p-ynv7.bolt.host
+  allowed-origins: http://localhost:3000, http://localhost:5173, https://personalized-multi-p-ynv7.bolt.host
 
 logging:
   level:

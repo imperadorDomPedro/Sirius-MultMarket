@@ -48,25 +48,30 @@ public class ProdutoService {
                 .orElseThrow(() -> new RuntimeException("Produto não encontrado: " + id));
     }
 
+    // Mapeia Produto → ProdutoResponse usando @Builder (padrão clean code do projeto)
     private ProdutoResponse toResponse(Produto p) {
-        return new ProdutoResponse(
-                String.valueOf(p.getId()),
-                p.getNome(),
-                p.getDescricao(),
-                p.getPreco().doubleValue(),
-                p.getPrecoOriginal() != null ? p.getPrecoOriginal().doubleValue() : null,
-                p.getImagens(),
-                String.valueOf(p.getCategoria().getId()),
-                String.valueOf(p.getEmpresa().getId()),
-                p.getRating(),
-                p.getTotalAvaliacoes(),
-                p.getEstoque(),
-                p.getTags(),
-                p.getEServico(),
-                p.getDestaque(),
-                p.getSpecs(),
-                p.getTempoEntrega(),
-                p.getEpocaDisponivel()
-        );
+        return ProdutoResponse.builder()
+                .id(p.getId())
+                .nome(p.getNome())
+                .descricao(p.getDescricao())
+                .preco(p.getPreco() != null ? p.getPreco().doubleValue() : null)
+                .precoOriginal(p.getPrecoOriginal() != null ? p.getPrecoOriginal().doubleValue() : null)
+                .imagens(p.getImagens())
+                .categoriaId(p.getCategoria() != null ? p.getCategoria().getId() : null)
+                .categoriaSlug(p.getCategoria() != null ? p.getCategoria().getSlug() : null)
+                .empresaId(p.getEmpresa() != null ? p.getEmpresa().getId() : null)
+                .empresaSlug(p.getEmpresa() != null ? p.getEmpresa().getSlug() : null)
+                .empresaNome(p.getEmpresa() != null ? p.getEmpresa().getNome() : null)
+                .rating(p.getRating())
+                .totalAvaliacoes(p.getTotalAvaliacoes())
+                .estoque(p.getEstoque())
+                .tags(p.getTags())
+                .especificacoes(p.getSpecs())
+                .eServico(p.getEServico())
+                .destaque(p.getDestaque())
+                .ativo(p.getAtivo())
+                .tempoEntrega(p.getTempoEntrega())
+                .epocaDisponivel(p.getEpocaDisponivel())
+                .build();
     }
 }

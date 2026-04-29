@@ -51,37 +51,36 @@ public class EmpresaService {
                 .collect(Collectors.toList());
     }
 
-    // Mapeia Empresa → EmpresaResponse com contrato idêntico ao Bolt/React
     private EmpresaResponse toResponse(Empresa e) {
-        var categorySlugs = e.getCategorias()
+        List<String> categoriasSlugs = e.getCategorias()
                 .stream()
                 .map(c -> c.getSlug())
                 .collect(Collectors.toList());
 
-        return new EmpresaResponse(
-                String.valueOf(e.getId()),
-                e.getNome(),
-                e.getSlug(),
-                e.getTagline(),
-                e.getDescricao(),
-                e.getUrlLogo(),
-                e.getUrlBanner(),
-                e.getNomeResponsavel(),
-                e.getRating(),
-                e.getTotalAvaliacoes(),
-                e.getTotalSeguidores(),
-                e.getProdutos().size(),
-                categorySlugs,
-                e.getLocalizacao(),
-                e.getCriadoEm() != null ? e.getCriadoEm().toLocalDate().toString() : null,
-                e.getVerificado(),
-                e.getDestaque(),
-                e.getTempoResposta(),
-                new EmpresaResponse.PoliciesResponse(
-                        e.getPoliticaDevolucao(),
-                        e.getPoliticaEntrega()
-                ),
-                e.getWhatsapp()
-        );
+        return EmpresaResponse.builder()
+                .id(e.getId())
+                .slug(e.getSlug())
+                .nome(e.getNome())
+                .tagline(e.getTagline())
+                .descricao(e.getDescricao())
+                .urlLogo(e.getUrlLogo())
+                .urlBanner(e.getUrlBanner())
+                .nomeResponsavel(e.getNomeResponsavel())
+                .whatsapp(e.getWhatsapp())
+                .localizacao(e.getLocalizacao())
+                .tempoResposta(e.getTempoResposta())
+                .politicaEntrega(e.getPoliticaEntrega())
+                .politicaDevolucao(e.getPoliticaDevolucao())
+                .rating(e.getRating())
+                .totalAvaliacoes(e.getTotalAvaliacoes())
+                .totalSeguidores(e.getTotalSeguidores())
+                .verificado(e.getVerificado())
+                .destaque(e.getDestaque())
+                .ativo(e.getAtivo())
+                .planoNome(e.getPlano() != null ? e.getPlano().getNome() : null)
+                .categoriasSlugs(categoriasSlugs)
+                .criadoEm(e.getCriadoEm())
+                .atualizadoEm(e.getAtualizadoEm())
+                .build();
     }
 }

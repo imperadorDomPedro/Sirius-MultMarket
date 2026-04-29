@@ -30,7 +30,7 @@ public class CategoriaService {
 
     private CategoriaResponse toResponse(Categoria c) {
         return new CategoriaResponse(
-                String.valueOf(c.getId()),
+                c.getId(),
                 c.getNome(),
                 c.getSlug(),
                 c.getIcone(),

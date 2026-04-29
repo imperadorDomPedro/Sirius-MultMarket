@@ -33,7 +33,11 @@ public class SecurityConfig {
                 .requestMatchers(
                     "/categorias/**",
                     "/empresas/**",
-                    "/produtos/**"
+                    "/produtos/**",
+                    "/swagger-ui/**",
+                    "/swagger-ui.html",
+                    "/v3/api-docs/**",
+                    "/v3/api-docs"
                 ).permitAll()
                 // Futuro: rotas admin exigirão JWT
                 .anyRequest().authenticated()
