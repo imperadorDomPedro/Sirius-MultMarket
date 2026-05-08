@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    show-sql: false
+  flyway:
+    enabled: true
+
+# Swagger desabilitado em produção
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+# Actuator — expõe apenas /actuator/health para Railway detectar o serviço
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+
+logging:
+  level:
+    br.com.guiadegurupi: INFO
+    org.springframework.security: WARN
+    root: WARN
